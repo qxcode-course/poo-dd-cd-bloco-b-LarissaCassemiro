@@ -5,3 +5,7 @@
 2025-10-07 19:43:57, EXEC, v:1, k:poo@chinela, mode:FREE, size:63
 2025-10-07 20:07:54, MOVE, v:1, k:poo@camisa, mode:PICK
 2025-10-07 20:07:56, EXEC, v:1, k:poo@camisa, mode:FREE, size:11
+2025-10-07 20:14:26, MOVE, v:1, k:poo@camisa, mode:PICK
+2025-10-07 20:14:27, EXEC, v:1, k:poo@camisa, mode:LOCK, rate:0, size:15
+2025-10-07 20:14:31, EXEC, v:1, k:poo@camisa, mode:FREE
+2025-10-07 20:14:41, MOVE, v:1, k:poo@camisa, mode:BACK

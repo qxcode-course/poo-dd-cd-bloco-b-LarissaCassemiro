@@ -2,8 +2,13 @@
     "patches": [
         {
             "label": "2025-10-07_20-07-56",
-            "content": "class Camisa:\n    def __init__(self, tamanho:str):\n        self.__tamanho = \"\"\n\n    def set_tamanho(self, tamanho:str)-> bool:\n        opcoes = ['PP', 'P', 'M', 'G', 'GG', 'XG']\n        if tamanho in opcoes:\n            self.__tamanho = tamanho \n            print(\"O tamanho do sua camisa \u00e9: {self.tamanho}\")\n        return False \n\n",
+            "content": "@@ -257,17 +257,16 @@\n   print(\n-f\n %22O taman\n@@ -286,16 +286,21 @@\n isa %C3%A9: %7B\n+self.\n tamanho%7D\n@@ -329,63 +329,4 @@\n e %0A%0A\n-def main ():%0A    camisa = Camisa()%0A    while True:%0A        \n",
             "lines": "11"
+        },
+        {
+            "label": "2025-10-07_20-14-27",
+            "content": "class Camisa:\n    def __init__(self, tamanho:str):\n        self.__tamanho = \"\"\n\n    def set_tamanho(self, tamanho:str)-> bool:\n        opcoes = ['PP', 'P', 'M', 'G', 'GG', 'XG']\n        if tamanho in opcoes:\n            self.__tamanho = tamanho \n            print(f\"O tamanho do sua camisa \u00e9: {tamanho}\")\n        return False \n\ndef main ():\n    camisa = Camisa()\n    while True:\n        ",
+            "lines": "15"
         }
     ]
 }
