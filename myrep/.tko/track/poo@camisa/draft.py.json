@@ -1,0 +1,9 @@
+{
+    "patches": [
+        {
+            "label": "2025-10-07_20-07-56",
+            "content": "class Camisa:\n    def __init__(self, tamanho:str):\n        self.__tamanho = \"\"\n\n    def set_tamanho(self, tamanho:str)-> bool:\n        opcoes = ['PP', 'P', 'M', 'G', 'GG', 'XG']\n        if tamanho in opcoes:\n            self.__tamanho = tamanho \n            print(\"O tamanho do sua camisa \u00e9: {self.tamanho}\")\n        return False \n\n",
+            "lines": "11"
+        }
+    ]
+}
