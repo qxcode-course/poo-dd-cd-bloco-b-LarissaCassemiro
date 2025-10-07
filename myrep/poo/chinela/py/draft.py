@@ -36,13 +36,33 @@
 
 
 class Chinela: 
-    def __init__(self, tamanho:int):
-        self.tamanho = 0
+    def __init__(self, tamanho: int):
+        self.set_tamanho(tamanho)
 
-    def set_tamanho(self,tamanho:int)->None:
-        if tamanho =< 20 and tamanho >= 50:
-            print ("Este tamanho é inválido")
-            return 
+    def set_tamanho(self, tamanho: int) -> None:
+        if tamanho < 20 or tamanho > 50:
+            print("Este tamanho é inválido, deve estar entre 20 e 50")
+            return
         self.tamanho = tamanho
+        if tamanho % 2 != 0:
+            print("número inválido, deve ser par")
+            return
+        self.tamanho = tamanho 
 
-    def 
+    def get_tamanho(self) -> int:
+        return self.tamanho
+    
+    def __str__(self)->str:
+        return f"Chinela tamanho {self.tamanho}"
+    
+
+def main():
+    chinela = Chinela
+    while True:
+        line = input()
+        args = line.split()
+        print("$" + line)
+
+        if args [0] == "oi":
+            print(line)
+main()
