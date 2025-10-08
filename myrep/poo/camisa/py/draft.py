@@ -1,5 +1,5 @@
-class Camisa:
-    def __init__(self, tamanho:str):
+class Camisa():
+    def __init__(self):
         self.__tamanho = ""
 
     def set_tamanho(self, tamanho:str)-> bool:
@@ -7,9 +7,18 @@ class Camisa:
         if tamanho in opcoes:
             self.__tamanho = tamanho 
             print(f"O tamanho do sua camisa é: {tamanho}")
-        return False 
+            return True
+        else:
+            print("Tamanho inválido! Os tamanhos permitidos são: PP, P, M, G, GG, XG.") 
+            return False
 
 def main ():
     camisa = Camisa()
     while True:
+        roupa: str = input("Qual o tamanho de roupa você escolhe?").upper()
+
+        if camisa.set_tamanho(roupa) == True:
+            break
+
+main()
         

@@ -7,8 +7,18 @@
         },
         {
             "label": "2025-10-07_20-14-27",
-            "content": "class Camisa:\n    def __init__(self, tamanho:str):\n        self.__tamanho = \"\"\n\n    def set_tamanho(self, tamanho:str)-> bool:\n        opcoes = ['PP', 'P', 'M', 'G', 'GG', 'XG']\n        if tamanho in opcoes:\n            self.__tamanho = tamanho \n            print(f\"O tamanho do sua camisa \u00e9: {tamanho}\")\n        return False \n\ndef main ():\n    camisa = Camisa()\n    while True:\n        ",
+            "content": "@@ -384,150 +384,4 @@\n     \n-roupa: str = int(input(%22Qual o tamanho de roupa voc%C3%AA escolhe?%22))%0A%0A        if camisa.set_tamanho(roupa) == True:%0A            break%0A%0Amain()%0A        \n",
             "lines": "15"
+        },
+        {
+            "label": "2025-10-08_03-25-42",
+            "content": "@@ -5,18 +5,16 @@\n s Camisa\n-()\n :%0A    de\n@@ -28,16 +28,29 @@\n t__(self\n+, tamanho:str\n ):%0A     \n@@ -310,151 +310,21 @@\n     \n-    \n return \n-True%0A        else:%0A            print(%22Tamanho inv%C3%A1lido! Os tamanhos permitidos s%C3%A3o: PP, P, M, G, GG, XG.%22) %0A            return \n False\n+ \n %0A%0Ade\n@@ -393,16 +393,20 @@\n : str = \n+int(\n input(%22Q\n@@ -447,15 +447,8 @@\n e?%22)\n-.upper(\n )%0A%0A \n",
+            "lines": "21"
+        },
+        {
+            "label": "2025-10-08_03-35-16",
+            "content": "class Camisa():\n    def __init__(self):\n        self.__tamanho = \"\"\n\n    def set_tamanho(self, tamanho:str)-> bool:\n        opcoes = ['PP', 'P', 'M', 'G', 'GG', 'XG']\n        if tamanho in opcoes:\n            self.__tamanho = tamanho \n            print(f\"O tamanho do sua camisa \u00e9: {tamanho}\")\n            return True\n        else:\n            print(\"Tamanho inv\u00e1lido! Os tamanhos permitidos s\u00e3o: PP, P, M, G, GG, XG.\") \n            return False\n\ndef main ():\n    camisa = Camisa()\n    while True:\n        roupa: str = input(\"Qual o tamanho de roupa voc\u00ea escolhe?\").upper()\n\n        if camisa.set_tamanho(roupa) == True:\n            break\n\nmain()\n        ",
+            "lines": "24"
         }
     ]
 }
