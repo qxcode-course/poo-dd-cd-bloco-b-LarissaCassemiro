@@ -1,0 +1,19 @@
+{
+    "patches": [
+        {
+            "label": "2025-10-14_19-27-04",
+            "content": "@@ -36,17 +36,16 @@\n f, nome:\n- \n str):%0A  \n@@ -97,101 +97,8 @@\n f):%0A\n-        return self.__nome %0A%0A    def set_nome(self, value: str):%0A        self.__nome = value%0A\n     \n@@ -121,16 +121,39 @@\n __nome%0A%0A\n+    def set_nome(self)%0A\n %0Aclass M\n@@ -238,22 +238,16 @@\n inserir(\n-self, \n cliente:\n@@ -259,17 +259,8 @@\n oa):\n- -%3E bool:\n %0A   \n@@ -300,21 +300,31 @@\n  print(%22\n+a \n moto \n+j%C3%A1 esta \n ocupada%22\n",
+            "lines": "37"
+        },
+        {
+            "label": "2025-10-14_19-34-00",
+            "content": "@@ -6,16 +6,17 @@\n  Pessoa:\n+ \n %0A    def\n@@ -66,15 +66,15 @@\n nome\n- = \n+(\n nome\n+)%0A\n %0A   \n@@ -120,16 +120,18 @@\n f.__nome\n+ %0A\n %0A    def\n@@ -187,39 +187,16 @@\n = value%0A\n-    def __str__(self):%0A\n         \n@@ -215,16 +215,17 @@\n __nome%0A%0A\n+%0A\n class Mo\n@@ -255,21 +255,8 @@\n lf):\n- # type union\n %0A   \n@@ -294,22 +294,19 @@\n e = None\n+ \n %0A%0A\n-    \n def inse\n@@ -331,16 +331,17 @@\n  Pessoa)\n+:\n  -%3E bool\n@@ -342,28 +342,24 @@\n %3E bool:%0A    \n-    \n if self.clie\n@@ -371,36 +371,32 @@\n = None:%0A        \n-    \n print(%22moto ocup\n@@ -397,28 +397,24 @@\n o ocupada%22)%0A\n-    \n         retu\n@@ -422,20 +422,16 @@\n n False%0A\n-    \n     self\n@@ -423,32 +423,33 @@\n  False%0A    self.\n+ \n cliente = client\n@@ -445,29 +445,26 @@\n te = cliente\n-%0A   \n  \n+%0A\n     return T\n@@ -467,25 +467,18 @@\n rn True%0A\n-    %0A    \n+%0A%0A\n def remo\n@@ -501,28 +501,24 @@\n soa %7C None:%0A\n-    \n     if self.\n@@ -529,24 +529,25 @@\n nte == None:\n+ \n %0A           \n@@ -539,36 +539,32 @@\n e: %0A        \n-    \n print(%22\n-m\n+M\n oto vazia%22)%0A\n@@ -567,28 +567,24 @@\n a%22)%0A        \n-    \n return None%0A\n@@ -579,28 +579,24 @@\n return None%0A\n-    \n     aux: Pes\n@@ -613,21 +613,18 @@\n .cliente\n-%0A   \n  \n+%0A\n     self\n@@ -638,25 +638,22 @@\n e = None\n-%0A  \n  \n+%0A\n     \n- \n return a\n@@ -659,21 +659,9 @@\n aux%0A\n-        %0A    \n+%0A\n def \n@@ -675,28 +675,24 @@\n (self):%0A    \n-    \n return f%22mot\n@@ -693,17 +693,16 @@\n  f%22moto:\n- \n %7Bself.cl\n@@ -709,20 +709,16 @@\n iente%7D%22%0A\n-    \n %0Amoto = \n@@ -741,22 +741,18 @@\n ssoa\n+ \n (%22\n-jose\n+Jos%C3%A9\n %22) \n-# 500\n %0Amot\n@@ -792,14 +792,8 @@\n er()\n- # 500\n %0Apri\n@@ -812,11 +812,5 @@\n ose)\n- # True\n+%0A\n",
+            "lines": "40"
+        },
+        {
+            "label": "2025-10-14_19-35-55",
+            "content": "class Pessoa:\n    def __init__(self, nome: str):\n        self.__nome = nome\n    def get_nome(self):\n        return self.__nome\n    def set_nome(self, value: str):\n        self.__nome = value\n    def __str__(self):\n        return self.__nome\n\nclass Moto:\n    def __init__(self): # type union\n        self.cliente: Pessoa | None = None\n\n    def inserir(self, cliente: Pessoa) -> bool:\n        if self.cliente != None:\n            print(\"moto ocupada\")\n            return False\n        self.cliente = cliente\n        return True\n    \n    def remover(self) -> Pessoa | None:\n        if self.cliente == None:\n            print(\"moto vazia\")\n            return None\n        aux: Pessoa = self.cliente\n        self.cliente = None\n        return aux\n        \n    def __str__(self):\n        return f\"moto: {self.cliente}\"\n    \nmoto = Moto()\njose = Pessoa(\"jose\") # 500\nmoto.inserir(jose)\nsaiu = moto.remover() # 500\nprint(saiu == jose) # True",
+            "lines": "37"
+        }
+    ]
+}

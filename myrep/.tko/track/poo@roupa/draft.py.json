@@ -227,7 +227,92 @@
         },
         {
             "label": "2025-10-14_14-34-39",
-            "content": "@@ -1154,17 +1154,17 @@\n   return\n- \n+(\n f%22%7Bself.\n@@ -1174,16 +1174,17 @@\n amanho%7D%22\n+)\n %0A%0A%0Adef m\n",
+            "content": "@@ -1,1565 +1,111 @@\n-# - Vamos implementar uma classe que controla os poss%C3%ADveis valores de tamanho para uma roupa.%0A# - Os tamanhos ser%C3%A3o identificados como uma vari%C3%A1vel tipo texto, e os valores v%C3%A1lidos s%C3%A3o %22PP%22, %22P%22, %22M%22 e %22G%22, %22GG%22 e %22XG%22.%0A# - Fa%C3%A7a o objeto roupa iniciar o tamanho como uma string vazia, para expressar que nenhum tamanho foi atribu%C3%ADdo.%0A# - Crie o m%C3%A9todo setTamanho que apenas aceita os valores v%C3%A1lidos de tamanho.%0A# - Caso o valor seja inv%C3%A1lido, avise e d%C3%AA uma mensagem de erro informando quais os valores permitidos.%0A# - Fa%C3%A7a um c%C3%B3digo de teste iniciando uma roupa com tamanho vazio e pedindo para o usu%C3%A1rio informar o tamanho da roupa.%0A# - Mantenha o usu%C3%A1rio preso no loop at%C3%A9 que ele insira um valor v%C3%A1lido.%0A%0Aclass Camisa():%0A    def __init__(self):%0A        self.__tamanho = %22%22%0A%0A    def set_tamanho(self, tamanho:str)-%3E bool:%0A        opcoes = %5B'PP', 'P', 'M', 'G', 'GG', 'XG'%5D%0A        if tamanho in opcoes:%0A            self.__tamanho = tamanho %0A            print(f%22%7Bself.__tamanho%7D%22)%0A            return True%0A        else:%0A            print(%22fail: Valor inv%C3%A1lido, tente PP, P, M, G, GG ou XG%22) %0A            return False%0A%0A    def __str__(self):%0A            return f%22%7Bself.__tamanho%7D%22%0A%0A%0Adef main ():%0A    camisa = Camisa()%0A    while True:%0A        line = input()%0A        args = line.split()%0A        print(f%22$%7Bline%7D%22)%0A%0A        if args%5B0%5D == %22end%22:%0A                break %0A        elif args%5B0%5D == %22init%22:%0A            camisa = Camisa()%0A        elif args%5B0%5D == %22show%22:%0A            print(camisa)%0A        elif args%5B0%5D == %22size%22:%0A            camisa.set_tamanho(args%5B1%5D)%0A%0A%0Amain()\n+@@ -1154,17 +1154,17 @@%0A   return%0A- %0A+(%0A f%2522%257Bself.%0A@@ -1174,16 +1174,17 @@%0A amanho%257D%2522%0A+)%0A %250A%250A%250Adef m%0A\n",
+            "lines": "9"
+        },
+        {
+            "label": "2025-10-14_18-37-38",
+            "content": "@@ -1161,15 +1161,8 @@\n n f%22\n-size: (\n %7Bsel\n@@ -1173,17 +1173,16 @@\n tamanho%7D\n-)\n %22%0A%0A%0Adef \n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-10-14_18-38-30",
+            "content": "@@ -1173,16 +1173,8 @@\n self\n--service\n .__t\n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-10-14_18-41-38",
+            "content": "@@ -1165,24 +1165,32 @@\n size: (%7Bself\n+-service\n .__tamanho%7D)\n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-10-14_18-41-57",
+            "content": "@@ -1355,16 +1355,20 @@\n         \n+    \n break %0A \n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-10-14_18-42-14",
+            "content": "@@ -1474,23 +1474,22 @@\n   print(\n-tamanho\n+camisa\n )%0A      \n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-10-14_18-42-35",
+            "content": "@@ -1474,23 +1474,16 @@\n   print(\n-self.__\n tamanho)\n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-10-14_18-42-46",
+            "content": "@@ -1474,16 +1474,21 @@\n   print(\n+self.\n __tamanh\n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-10-14_18-42-52",
+            "content": "@@ -1474,22 +1474,25 @@\n   print(\n-camisa\n+__tamanho\n )%0A      \n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-10-14_18-43-45",
+            "content": "@@ -1474,30 +1474,22 @@\n   print(\n-self.__tamanho\n+camisa\n )%0A      \n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-10-14_18-48-47",
+            "content": "@@ -1474,22 +1474,30 @@\n   print(\n-camisa\n+self.__tamanho\n )%0A      \n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-10-14_18-48-55",
+            "content": "@@ -1474,17 +1474,17 @@\n   print(\n-C\n+c\n amisa)%0A \n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-10-14_18-50-55",
+            "content": "@@ -1474,17 +1474,17 @@\n   print(\n-c\n+C\n amisa)%0A \n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-10-14_18-51-01",
+            "content": "@@ -1480,18 +1480,16 @@\n t(camisa\n-()\n )%0A      \n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-10-14_18-52-29",
+            "content": "@@ -1480,16 +1480,18 @@\n t(camisa\n+()\n )%0A      \n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-10-14_18-52-37",
+            "content": "@@ -1474,20 +1474,22 @@\n   print(\n-line\n+camisa\n )%0A      \n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-10-14_19-58-27",
+            "content": "@@ -1474,22 +1474,20 @@\n   print(\n-camisa\n+line\n )%0A      \n",
+            "lines": "44"
+        },
+        {
+            "label": "2025-10-14_19-58-36",
+            "content": "# - Vamos implementar uma classe que controla os poss\u00edveis valores de tamanho para uma roupa.\n# - Os tamanhos ser\u00e3o identificados como uma vari\u00e1vel tipo texto, e os valores v\u00e1lidos s\u00e3o \"PP\", \"P\", \"M\" e \"G\", \"GG\" e \"XG\".\n# - Fa\u00e7a o objeto roupa iniciar o tamanho como uma string vazia, para expressar que nenhum tamanho foi atribu\u00eddo.\n# - Crie o m\u00e9todo setTamanho que apenas aceita os valores v\u00e1lidos de tamanho.\n# - Caso o valor seja inv\u00e1lido, avise e d\u00ea uma mensagem de erro informando quais os valores permitidos.\n# - Fa\u00e7a um c\u00f3digo de teste iniciando uma roupa com tamanho vazio e pedindo para o usu\u00e1rio informar o tamanho da roupa.\n# - Mantenha o usu\u00e1rio preso no loop at\u00e9 que ele insira um valor v\u00e1lido.\n\nclass Camisa():\n    def __init__(self):\n        self.__tamanho = \"\"\n\n    def set_tamanho(self, tamanho:str)-> bool:\n        opcoes = ['PP', 'P', 'M', 'G', 'GG', 'XG']\n        if tamanho in opcoes:\n            self.__tamanho = tamanho \n            print(f\"{self.__tamanho}\")\n            return True\n        else:\n            print(\"fail: Valor inv\u00e1lido, tente PP, P, M, G, GG ou XG\") \n            return False\n\n    def __str__(self):\n            return f\"size: ({self.__tamanho})\"\n\n\ndef main ():\n    camisa = Camisa()\n    while True:\n        line = input()\n        args = line.split()\n        print(f\"${line}\")\n\n        if args[0] == \"end\":\n            break \n        elif args[0] == \"init\":\n            camisa = Camisa()\n        elif args[0] == \"show\":\n            print(camisa)\n        elif args[0] == \"size\":\n            camisa.set_tamanho(args[1])\n\n\nmain()",
             "lines": "44"
         }
     ]

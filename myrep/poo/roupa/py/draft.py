@@ -21,7 +21,7 @@ class Camisa():
             return False
 
     def __str__(self):
-            return f"{self.__tamanho}"
+            return f"size: ({self.__tamanho})"
 
 
 def main ():
@@ -32,7 +32,7 @@ def main ():
         print(f"${line}")
 
         if args[0] == "end":
-                break 
+            break 
         elif args[0] == "init":
             camisa = Camisa()
         elif args[0] == "show":
