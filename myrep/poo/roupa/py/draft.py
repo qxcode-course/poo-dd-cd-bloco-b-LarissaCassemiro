@@ -6,38 +6,39 @@
 # - Faça um código de teste iniciando uma roupa com tamanho vazio e pedindo para o usuário informar o tamanho da roupa.
 # - Mantenha o usuário preso no loop até que ele insira um valor válido.
 
-class Roupa:
+class Camisa():
     def __init__(self):
-        self.tamanho = ''
-        self.tamanhoValidos = ["PP", "P", "M", "G", "GG", "XG"]
+        self.__tamanho = ""
 
-    def set_tamanho(self, tamanho: str) -> bool:
-        tamanho = tamanho.upper()  # garante letras maiúsculas
-        if tamanho != self.tamanhoValidos:
-            print(f"Tamanho inválido! Os tamanhos permitidos são: {self.tamanhoValidos}.")
+    def set_tamanho(self, tamanho:str)-> bool:
+        opcoes = ['PP', 'P', 'M', 'G', 'GG', 'XG']
+        if tamanho in opcoes:
+            self.__tamanho = tamanho 
+            print(f"{self.__tamanho}")
+            return True
+        else:
+            print("fail: Valor inválido, tente PP, P, M, G, GG ou XG") 
             return False
-        self.tamanho = tamanho
-        print(f"Tamanho '{self.tamanho}' definido com sucesso!")
-        return True
 
-    def get_tamanho(self) -> str:
-        return self.tamanho
-
-    def __str__(self) -> str:
-        if self.tamanho == '':
-            return "Roupa sem tamanho definido."
-        return f"Roupa tamanho {self.tamanho}"
+    def __str__(self):
+            return f"{self.__tamanho}"
 
 
-def main():
-    roupa = Roupa()
-
+def main ():
+    camisa = Camisa()
     while True:
-        tamanho = input("Digite o tamanho da roupa (PP, P, M, G, GG, XG): ").strip()
-        if roupa.set_tamanho(tamanho):
-            break  
+        line = input()
+        args = line.split()
+        print(f"${line}")
 
-    print(roupa)
+        if args[0] == "end":
+                break 
+        elif args[0] == "init":
+            camisa = Camisa()
+        elif args[0] == "show":
+            print(camisa)
+        elif args[0] == "size":
+            camisa.set_tamanho(args[1])
 
 
 main()

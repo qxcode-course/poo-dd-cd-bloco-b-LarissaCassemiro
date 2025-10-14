@@ -8,7 +8,7 @@ sources:
 - database: poo
   link: https://github.com/qxcodepoo/arcade/blob/master/Readme.md
   cache_path: /workspaces/poo-dd-cd-bloco-b-LarissaCassemiro/myrep/.tko/cache/poo.md
-  cache_timestamp: '2025-10-07 19:38:51'
+  cache_timestamp: '2025-10-14 14:33:06'
   filters:
   - acesso
   - simples
@@ -17,10 +17,10 @@ expanded:
 - poo@bloco_b-modificadores-de-acesso
 tasks: {}
 flags:
-  quests: 0
+  quests: 2
   tracks: 0
   tasks: 0
   graph: 0
   xray: 0
 lang: py
-selected: poo@chinela
+selected: poo@relogio
