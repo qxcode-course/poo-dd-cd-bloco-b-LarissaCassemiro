@@ -10,21 +10,20 @@ class Camisa():
     def __init__(self):
         self.__tamanho = ""
 
-    def set_tamanho(self, tamanho:str)-> bool:
+    def set_tamanho(self, tamanho: str) -> bool:
         opcoes = ['PP', 'P', 'M', 'G', 'GG', 'XG']
         if tamanho in opcoes:
-            self.__tamanho = tamanho 
-            print(f"{self.__tamanho}")
+            self.__tamanho = tamanho
             return True
         else:
-            print("fail: Valor inválido, tente PP, P, M, G, GG ou XG") 
+            print("fail: Valor inválido, tente PP, P, M, G, GG ou XG")
             return False
 
     def __str__(self):
-            return f"size: ({self.__tamanho})"
+        return f"size: ({self.__tamanho})"
 
 
-def main ():
+def main():
     camisa = Camisa()
     while True:
         line = input()
@@ -32,7 +31,7 @@ def main ():
         print(f"${line}")
 
         if args[0] == "end":
-            break 
+            break
         elif args[0] == "init":
             camisa = Camisa()
         elif args[0] == "show":

@@ -47,6 +47,7 @@ class Chinela:
             print("Número inválido, deve ser um número par")
             return False
         self.__tamanho = tamanho
+        print(f"O tamanho do sua camisa é: {tamanho}")
         return True
 
     def get_tamanho(self)-> int:
