@@ -7,8 +7,8 @@ sources:
   filters: null
 - database: poo
   link: https://github.com/qxcodepoo/arcade/blob/master/Readme.md
-  cache_path: C:\Users\PATRICIA\Documents\tko\Poo-dd-cd-bloco-b-LarissaCassemiro\poo-dd-cd-bloco-b-LarissaCassemiro\myrep\.tko\cache\poo.md
-  cache_timestamp: '2025-10-19 15:50:45'
+  cache_path: /workspaces/poo-dd-cd-bloco-b-LarissaCassemiro/myrep/.tko/cache/poo.md
+  cache_timestamp: '2025-10-20 18:41:16'
   filters:
   - acesso
   - simples
@@ -17,6 +17,7 @@ expanded:
 - poo@bloco_b-agregação-simples
 tasks:
   poo@relogio: '{rate:100}'
+  poo@motoca: '{rate:100}'
 flags:
   quests: 2
   tracks: 0
@@ -24,4 +25,4 @@ flags:
   graph: 0
   xray: 0
 lang: py
-selected: poo@motoca
+selected: poo@grafite

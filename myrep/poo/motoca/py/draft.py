@@ -35,42 +35,52 @@ class Pessoa:
 
 class Moto:
     def __init__(self, potencia: int = 1):
-        self.power = potencia
-        self.time = 0
-        self.person: Pessoa | None = None
+        self.potencia = potencia
+        self.tempo = 0
+        self.pessoa: Pessoa | None = None
     
 
     def __str__(self):
-        return f"power:{self.power}, time:{self.time}, person:{self.person}"
+        reserva = f"power:{self.potencia}, time:{self.tempo}, person:"
+        if self.pessoa == None:
+            reserva += ("(empty)")
+        else: 
+            reserva += f"({self.pessoa.get_nome()}:{self.pessoa.get_idade()})"
+        return(reserva)
 
+     
     def inserir(self, pessoa: Pessoa):
-        if self.person is not None:
-            print("fail: moto ocupada")
+        if self.pessoa is not None:
+            print("fail: busy motorcycle")
             return
-        self.person = pessoa
+        self.pessoa = pessoa
 
     def remover(self):
-        if self.person is None:
-            print("fail: moto vazia")
+        if self.pessoa is None:
+            print("fail: empty motorcycle")
             return
-        print(self.person)
-        self.person = None
+        print (f"{self.pessoa.get_nome()}:{self.pessoa.get_idade()}")
+        self.pessoa = None
 
     def comprarTempo(self, value: int):
-        self.time += value
+        self.tempo += value
 
     def dirigir(self, tempo: int):
-        if self.pessoa == None:
-            print("fail: moto vazia")
-            return
         if self.tempo == 0:
-            print("fail: tempo zerado")
+            print("fail: buy time first")
+            return
+        if self.pessoa == None:
+            print("fail: empty motorcycle")
+            return
+        if self.pessoa.get_idade() > 10:
+            print("fail: too old to drive")
             return
         if tempo > self.tempo:
-            print(f"fail: andou {self.tempo} min e acabou o tempo")
+            print (f"fail: time finished after {tempo - self.tempo} minutes")
             self.tempo = 0
         else:
             self.tempo -= tempo
+
         
     def buzinar(self):
         print("P" + "e" * self.potencia + "m")
