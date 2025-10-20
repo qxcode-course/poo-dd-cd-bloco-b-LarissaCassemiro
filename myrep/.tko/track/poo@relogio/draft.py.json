@@ -127,8 +127,208 @@
         },
         {
             "label": "2025-10-15_02-09-03",
-            "content": "# Seu objetivo \u00e9 construtir uma Classe Rel\u00f3gio `Watch` que garanta que a hora, minuto e segundo sejam v\u00e1lidos.\n\n# - Construtor\n#   - O construtor deve receber 3 par\u00e2metros, hora, minuto e segundo.\n#   - Para fazer a inicializa\u00e7\u00e3o dos 3 par\u00e2metros, utilize os m\u00e9todos set.\n# - Crie os m\u00e9todos getters e setters para cada atributo.\n#   - Os m\u00e9todos set devem garantir que os valor atribu\u00eddo sempre seja v\u00e1lido, ou n\u00e3o realize nenhuma mudan\u00e7a.\n# - `toString`\n#   - Crie um m\u00e9todo que imprime a hora no formato HH:MM:SS.\n#   - Voc\u00ea precisar\u00e1 pesquisar como formatar n\u00fameros menores que 10 com 2 d\u00edgitos (ex: 01, 02, 03).\n# - Nos m\u00e9todos set, realize a valida\u00e7\u00e3o dos valores.\n#   - Hora deve ser entre 0 e 23.\n#   - Minuto e segundo devem ser entre 0 e 59.\n# - Pr\u00f3ximo Segundo `nextSecond`\n#   - Crie um m\u00e9todo nextSecond que incrementa o segundo em 1.\n#   - Se o segundo for 59, ele deve ser zerado e o minuto incrementado.\n#   - Se o minuto for 59, ele deve ser zerado e a hora incrementada.\n#   - Se a hora for 23, ela deve ser zerada.\n\nclass Relogio:\n    def __init__(self, hora: int, minuto: int, segundo: int):\n        self.set_hora(hora)\n        self.set_minuto(minuto)\n        self.set_segundo(segundo)\n\n    def set_hora(self, h): print(\"fail: hora invalida\") if not 0 <= h <= 23 else setattr(self, \"_Relogio__hora\", h)\n    def set_minuto(self, m): print(\"fail: minuto invalido\") if not 0 <= m <= 59 else setattr(self, \"_Relogio__minuto\", m)\n    def set_segundo(self, s): print(\"fail: segundo invalido\") if not 0 <= s <= 59 else setattr(self, \"_Relogio__segundo\", s)\n\n    def __str__(self): return f\"{self.__hora:02d}:{self.__minuto:02d}:{self.__segundo:02d}\"\n\n    def nextSecond(self):\n        self.__segundo += 1\n        if self.__segundo == 60:\n            self.__segundo, self.__minuto = 0, self.__minuto + 1\n            if self.__minuto == 60:\n                self.__minuto, self.__hora = 0, (self.__hora + 1) % 24\n\n\ndef main():\n    relogio = Relogio(0, 0, 0)\n    while True:\n        args = input().split()\n        print(f\"${' '.join(args)}\")\n        if args[0] == \"end\": break\n        if args[0] == \"init\": relogio = Relogio(int(args[1]), int(args[2]), int(args[3]))\n        elif args[0] == \"show\": print(relogio)\n        elif args[0] == \"set\": relogio.set_hora(int(args[1])); relogio.set_minuto(int(args[2])); relogio.set_segundo(int(args[3]))\n        elif args[0] == \"next\": relogio.nextSecond()\n\nmain()\n",
+            "content": "@@ -1985,20 +1985,20 @@\n         \n-line\n+args\n  = input\n@@ -1999,16 +1999,24 @@\n  input()\n+.split()\n %0A       \n@@ -2030,42 +2030,24 @@\n f%22$%7B\n-line%7D%22)%0A        args = line.split(\n+' '.join(args)%7D%22\n )%0A  \n",
             "lines": "51"
+        },
+        {
+            "label": "2025-10-19_12-42-29",
+            "content": "@@ -1,1922 +1,2418 @@\n-class Relogio:%0A    def __init__(self, hora: int = 0, minuto: int = 0, segundo: int = 0):%0A        self.__hora = hora %0A        self.__minuto = minuto %0A        self.__segundo = segundo %0A        self.set_hora(hora)%0A        self.set_minuto(minuto)%0A        self.set_segundo(segundo)%0A%0A    def imprimir_hora(self):%0A        return f%22%7Bself.hora:02%7D: %7Bself.__minuto:02%7D:%7Bself.__segundo:02%7D%22%0A%0A    def set_hora(self, hora: int = 0):%0A        if hora %3C 0 or hora %3E 23:%0A            print(%22fail: hora invalida%22)%0A            return %0A        self.__hora = hora %0A%0A    def set_minuto(self, minuto: int = 0):%0A        if minuto %3C 0 or minuto %3E 59:%0A            print(%22fail: minuto invalido%22) %0A            return%0A        self.__minuto = minuto%0A    %0A    def set_segundo(self, segundo: int = 0): %0A        if segundo %3C 0 or segundo %3E 59:%0A            print(%22fail: segundo invalido%22)%0A            return %0A        self.__segundo = segundo%0A%0A    def nextSecond(self):%0A        self.__segundo += 1%0A        if self.__segundo == 59:%0A            self.__segundo = 0%0A            self.__minuto += 1%0A%0A            if self.__minuto %3C= 59:%0A                self.__minuto = 0%0A                self.__hora = 1%0A%0A            if self.__hora %3C= 23:%0A                self.__minuto = 0%0A%0A    def get_hora(self) -%3E int: %0A        return self.__hora%0A    def get_minuto(self) -%3E int: %0A        return self.__minuto%0A    def get_segundo(self) -%3E int: %0A        return self.__segundo%0A    %0Adef main():%0A    relogio = Relogio%0A    while True:%0A        line = input()%0A        print(f%22$%7Bline%7D%22)%0A        args: list %5Bstr%5D = line.split(%22 %22)%0A        if args%5B0%5D == %22end%22: %0A            break%0A        elif args%5B0%5D == %22show%22: %0A            print(relogio.imprimir_hora())%0A        if args%5B0%5D == %22hora%22: %0A            relogio.set.__hora(int(args%5B1%5D))%0A            relogio.set.__minuto(int(args%5B2%5D))%0A            relogio.set.__segundo(int(args%5B3%5D))%0A        if args%5B0%5D == %22init%22:%0A            relogio = Relogio\n+# Seu objetivo %C3%A9 construtir uma Classe Rel%C3%B3gio %60Watch%60 que garanta que a hora, minuto e segundo sejam v%C3%A1lidos.%0A%0A# - Construtor%0A#   - O construtor deve receber 3 par%C3%A2metros, hora, minuto e segundo.%0A#   - Para fazer a inicializa%C3%A7%C3%A3o dos 3 par%C3%A2metros, utilize os m%C3%A9todos set.%0A# - Crie os m%C3%A9todos getters e setters para cada atributo.%0A#   - Os m%C3%A9todos set devem garantir que os valor atribu%C3%ADdo sempre seja v%C3%A1lido, ou n%C3%A3o realize nenhuma mudan%C3%A7a.%0A# - %60toString%60%0A#   - Crie um m%C3%A9todo que imprime a hora no formato HH:MM:SS.%0A#   - Voc%C3%AA precisar%C3%A1 pesquisar como formatar n%C3%BAmeros menores que 10 com 2 d%C3%ADgitos (ex: 01, 02, 03).%0A# - Nos m%C3%A9todos set, realize a valida%C3%A7%C3%A3o dos valores.%0A#   - Hora deve ser entre 0 e 23.%0A#   - Minuto e segundo devem ser entre 0 e 59.%0A# - Pr%C3%B3ximo Segundo %60nextSecond%60%0A#   - Crie um m%C3%A9todo nextSecond que incrementa o segundo em 1.%0A#   - Se o segundo for 59, ele deve ser zerado e o minuto incrementado.%0A#   - Se o minuto for 59, ele deve ser zerado e a hora incrementada.%0A#   - Se a hora for 23, ela deve ser zerada.%0A%0Aclass Relogio:%0A    def __init__(self, hora: int, minuto: int, segundo: int):%0A        self.set_hora(hora)%0A        self.set_minuto(minuto)%0A        self.set_segundo(segundo)%0A%0A    def set_hora(self, h): print(%22fail: hora invalida%22) if not 0 %3C= h %3C= 23 else setattr(self, %22_Relogio__hora%22, h)%0A    def set_minuto(self, m): print(%22fail: minuto invalido%22) if not 0 %3C= m %3C= 59 else setattr(self, %22_Relogio__minuto%22, m)%0A    def set_segundo(self, s): print(%22fail: segundo invalido%22) if not 0 %3C= s %3C= 59 else setattr(self, %22_Relogio__segundo%22, s)%0A%0A    def __str__(self): return f%22%7Bself.__hora:02d%7D:%7Bself.__minuto:02d%7D:%7Bself.__segundo:02d%7D%22%0A%0A    def nextSecond(self):%0A        self.__segundo += 1%0A        if self.__segundo == 60:%0A            self.__segundo, self.__minuto = 0, self.__minuto + 1%0A            if self.__minuto == 60:%0A                self.__minuto, self.__hora = 0, (self.__hora + 1) %25 24%0A%0A%0Adef main():%0A    relogio = Relogio(0, 0, 0)%0A    while True:%0A        line = input()%0A        print(f%22$%7Bline%7D%22)%0A        args = line.split()%0A        if args%5B0%5D == %22end%22: break%0A        if args%5B0%5D == %22init%22: relogio = Relogio(int(args%5B1%5D), int(args%5B2%5D), int(args%5B3%5D))%0A        elif args%5B0%5D == %22show%22: print(relogio)%0A        elif args%5B0%5D == %22set%22: relogio.set_hora(int(args%5B1%5D)); relogio.set_minuto(int(args%5B2%5D)); relogio.set_segundo(int(args%5B3%5D))%0A        elif args%5B0%5D == %22next%22: relogio.nextSecond\n ()%0A%0A\n",
+            "lines": "52"
+        },
+        {
+            "label": "2025-10-19_14-00-41",
+            "content": "@@ -273,85 +273,8 @@\n ndo)\n-%0A        self.__hora = 0%0A        self.__minuto = 0%0A        self.__segundo = 0\n %0A%0A  \n@@ -1076,25 +1076,26 @@\n lf.__minuto \n-%3E\n+%3C=\n  59:%0A       \n@@ -1177,25 +1177,26 @@\n self.__hora \n-%3E\n+%3C=\n  23:%0A       \n@@ -1890,25 +1890,24 @@\n             \n- \n relogio = Re\n@@ -1916,49 +1916,8 @@\n gio(\n-int(args%5B1%5D), int(args%5B2%5D) , int(args%5B3%5D)\n )%0A%0Am\n",
+            "lines": "68"
+        },
+        {
+            "label": "2025-10-19_14-05-41",
+            "content": "@@ -1748,24 +1748,26 @@\n mprimir_hora\n+()\n )%0A        if\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-02-18",
+            "content": "@@ -1752,18 +1752,16 @@\n mir_hora\n-()\n )%0A      \n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-06-27",
+            "content": "@@ -1748,24 +1748,26 @@\n mprimir_hora\n+()\n )%0A        if\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-06-49",
+            "content": "@@ -1731,16 +1731,24 @@\n   print(\n+relogio.\n imprimir\n@@ -1752,18 +1752,16 @@\n mir_hora\n-()\n )%0A      \n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-07-45",
+            "content": "@@ -203,20 +203,16 @@\n ra(hora)\n- = 0\n %0A       \n@@ -235,20 +235,16 @@\n (minuto)\n- = 0\n %0A       \n@@ -269,16 +269,89 @@\n segundo)\n+%0A        self.__hora = 0%0A        self.__minuto = 0%0A        self.__segundo\n  = 0%0A%0A  \n@@ -1050,33 +1050,34 @@\n  self.__segundo \n-%3E\n+==\n  59:%0A           \n@@ -1709,24 +1709,24 @@\n == %22show%22: %0A\n+\n             \n@@ -1731,24 +1731,16 @@\n   print(\n-relogio.\n imprimir\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-13-03",
+            "content": "@@ -204,16 +204,19 @@\n a(hora) \n+= 0\n %0A       \n@@ -240,16 +240,19 @@\n minuto) \n+= 0\n %0A       \n@@ -281,88 +281,12 @@\n ndo)\n-%0A        self.__hora = 0 %0A        self.__minuto = 0 %0A        self.__segundo = 0 \n+ = 0\n %0A%0A  \n",
+            "lines": "68"
+        },
+        {
+            "label": "2025-10-19_15-13-51",
+            "content": "@@ -1761,33 +1761,8 @@\n ora(\n-%7Bhora%7D,%7Bminuto%7D,%7Bsegundo%7D\n ))%0A \n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-14-23",
+            "content": "@@ -1756,16 +1756,43 @@\n mir_hora\n+(%7Bhora%7D,%7Bminuto%7D,%7Bsegundo%7D)\n )%0A      \n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-14-58",
+            "content": "@@ -104,17 +104,21 @@\n _hora = \n-0\n+hora \n %0A       \n@@ -126,33 +126,39 @@\n self.__minuto = \n-0\n+minuto \n %0A        self.__\n@@ -159,33 +159,40 @@\n elf.__segundo = \n-0\n+segundo \n %0A        self.se\n@@ -203,16 +203,17 @@\n ra(hora)\n+ \n %0A       \n@@ -236,16 +236,17 @@\n (minuto)\n+ \n %0A       \n@@ -271,16 +271,96 @@\n segundo)\n+%0A        self.__hora = 0 %0A        self.__minuto = 0 %0A        self.__segundo = 0 \n %0A%0A    de\n@@ -401,26 +401,24 @@\n urn f%22%7Bself.\n-__\n hora:02%7D:%7Bse\n@@ -410,24 +410,25 @@\n lf.hora:02%7D:\n+ \n %7Bself.__minu\n@@ -510,20 +510,26 @@\n  if \n-0 %3C=\n+hora %3C 0 or\n  hora \n-%3C=\n+%3E\n  23:\n@@ -545,81 +545,84 @@\n     \n-self.__hora = hora%0A        else:%0A            print(%22fail: hora invalida%22)\n+print(%22fail: hora invalida%22)%0A            return %0A        self.__hora = hora \n %0A%0A  \n@@ -677,20 +677,29 @@\n  if \n-0 %3C=\n+minuto %3C 0 or\n  minuto \n %3C= 5\n@@ -694,18 +694,17 @@\n  minuto \n-%3C=\n+%3E\n  59:%0A   \n@@ -716,88 +716,94 @@\n     \n-self.__minuto = minuto%0A        else:%0A            print(%22fail: minuto invalido%22)%0A\n+print(%22fail: minuto invalido%22) %0A            return%0A        self.__minuto = minuto%0A    \n %0A   \n@@ -835,32 +835,33 @@\n gundo: int = 0):\n+ \n %0A        if 0 %3C=\n@@ -860,12 +860,22 @@\n  if \n-0 %3C=\n+segundo %3C 0 or\n  seg\n@@ -883,10 +883,9 @@\n ndo \n-%3C=\n+%3E\n  59:\n@@ -901,90 +901,92 @@\n     \n-self.__segundo = segundo%0A        else:%0A            print(%22fail: segundo invalido%22)\n+print(%22fail: segundo invalido%22)%0A            return %0A        self.__segundo = segundo\n %0A%0A  \n@@ -1127,24 +1127,25 @@\n minuto += 1%0A\n+%0A\n             \n@@ -1229,25 +1229,21 @@\n .__hora \n-+\n = 1%0A\n-    \n+%0A\n         \n@@ -1279,39 +1279,37 @@\n             \n-    \n self.__\n-hora\n+minuto\n  = 0%0A%0A    de\n@@ -1324,32 +1324,33 @@\n ra(self) -%3E int:\n+ \n %0A        return \n@@ -1361,17 +1361,16 @@\n .__hora%0A\n-%0A\n     def \n@@ -1385,32 +1385,33 @@\n to(self) -%3E int:\n+ \n %0A        return \n@@ -1424,17 +1424,16 @@\n _minuto%0A\n-%0A\n     def \n@@ -1457,16 +1457,17 @@\n  -%3E int:\n+ \n %0A       \n@@ -1489,17 +1489,20 @@\n segundo%0A\n-%0A\n+    \n %0Adef mai\n@@ -1524,12 +1524,15 @@\n o = \n-None\n+Relogio\n %0A   \n@@ -1605,16 +1605,28 @@\n     args\n+: list %5Bstr%5D\n  = line.\n@@ -1631,18 +1631,20 @@\n e.split(\n+%22 %22\n )\n-%0A\n %0A       \n@@ -1664,16 +1664,17 @@\n = %22end%22:\n+ \n %0A       \n@@ -1688,114 +1688,8 @@\n eak%0A\n-%0A        elif args%5B0%5D == %22init%22:%0A            relogio = Relogio(int(args%5B1%5D), int(args%5B2%5D), int(args%5B3%5D))%0A%0A\n     \n@@ -1715,16 +1715,17 @@\n  %22show%22:\n+ \n %0A       \n@@ -1760,12 +1760,9 @@\n hora\n-())%0A\n+)\n %0A   \n@@ -1758,34 +1758,32 @@\n r_hora)%0A        \n-el\n if args%5B0%5D == %22h\n@@ -1787,16 +1787,17 @@\n  %22hora%22:\n+ \n %0A       \n@@ -1808,24 +1808,26 @@\n  relogio.set\n+._\n _hora(int(ar\n@@ -1853,24 +1853,26 @@\n  relogio.set\n+._\n _minuto(int(\n@@ -1900,24 +1900,26 @@\n  relogio.set\n+._\n _segundo(int\n@@ -1929,25 +1929,24 @@\n gs%5B3%5D))%0A\n-%0A\n         \n elif arg\n@@ -1929,34 +1929,32 @@\n gs%5B3%5D))%0A        \n-el\n if args%5B0%5D == %22n\n@@ -1956,15 +1956,16 @@\n == %22\n-nex\n+ini\n t%22:%0A\n+ \n     \n@@ -1983,20 +1983,60 @@\n ogio\n-.nextSecond(\n+ = Relogio(int(args%5B1%5D), int(args%5B2%5D) , int(args%5B3%5D)\n )%0A%0Am\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-23-21",
+            "content": "@@ -86,72 +86,8 @@\n 0):%0A\n-        # inicializa com 0 e depois usa os setters para validar%0A\n     \n@@ -159,17 +159,16 @@\n ndo = 0%0A\n-%0A\n         \n@@ -258,61 +258,8 @@\n o)%0A%0A\n-    # m%C3%A9todo toString (equivalente ao imprimir_hora)%0A\n     \n@@ -362,36 +362,8 @@\n %7D%22%0A%0A\n-    # setters com valida%C3%A7%C3%A3o%0A\n     \n@@ -451,24 +451,79 @@\n _hora = hora\n+%0A        else:%0A            print(%22fail: hora invalida%22)\n %0A%0A    def se\n@@ -615,24 +615,81 @@\n uto = minuto\n+%0A        else:%0A            print(%22fail: minuto invalido%22)\n %0A%0A    def se\n@@ -795,248 +795,66 @@\n ndo%0A\n-%0A\n     \n-# getters%0A    def get_hora(self) -%3E int:%0A        return self.__hora%0A%0A    def get_minuto(self) -%3E int:%0A        return self.__minuto%0A%0A    def get_segundo(self) -%3E int:%0A        return self.__segundo%0A%0A    # m%C3%A9todo que incrementa um segundo\n+    else:%0A            print(%22fail: segundo invalido%22)%0A\n %0A   \n@@ -1174,16 +1174,203 @@\n ra = 0%0A%0A\n+    def get_hora(self) -%3E int:%0A        return self.__hora%0A%0A    def get_minuto(self) -%3E int:%0A        return self.__minuto%0A%0A    def get_segundo(self) -%3E int:%0A        return self.__segundo%0A%0A\n %0Adef mai\n@@ -1741,19 +1741,20 @@\n %5B0%5D == %22\n-set\n+hora\n %22:%0A     \n@@ -1949,16 +1949,15 @@\n cond()%0A%0A\n-%0A\n main()%0A\n",
+            "lines": "76"
+        },
+        {
+            "label": "2025-10-19_15-24-42",
+            "content": "@@ -74,32 +74,96 @@\n undo: int = 0):%0A\n+        # inicializa com 0 e depois usa os setters para validar%0A\n         self.__h\n@@ -168,21 +168,17 @@\n _hora = \n-hora \n+0\n %0A       \n@@ -194,23 +194,17 @@\n inuto = \n-minuto \n+0\n %0A       \n@@ -221,24 +221,18 @@\n gundo = \n-segundo \n+0%0A\n %0A       \n@@ -251,17 +251,16 @@\n ra(hora)\n- \n %0A       \n@@ -283,17 +283,16 @@\n (minuto)\n- \n %0A       \n@@ -322,88 +322,61 @@\n do)%0A\n+%0A\n     \n-    self.__hora = 0 %0A        self.__minuto = 0 %0A        self.__segundo = 0 %0A\n+# m%C3%A9todo toString (equivalente ao imprimir_hora)\n %0A   \n@@ -424,16 +424,18 @@\n f%22%7Bself.\n+__\n hora:02%7D\n@@ -435,17 +435,16 @@\n ora:02%7D:\n- \n %7Bself.__\n@@ -476,16 +476,44 @@\n o:02%7D%22%0A%0A\n+    # setters com valida%C3%A7%C3%A3o%0A\n     def \n@@ -558,26 +558,20 @@\n  if \n-hora %3C 0 or\n+0 %3C=\n  hora \n-%3E\n+%3C=\n  23:\n@@ -579,65 +579,8 @@\n     \n-        print(%22fail: hora invalida%22)%0A            return %0A\n     \n@@ -601,17 +601,16 @@\n a = hora\n- \n %0A%0A    de\n@@ -661,29 +661,20 @@\n  if \n-minuto %3C 0 or\n+0 %3C=\n  minuto \n %3E 59\n@@ -665,25 +665,26 @@\n 0 %3C= minuto \n-%3E\n+%3C=\n  59:%0A       \n@@ -684,67 +684,8 @@\n     \n-        print(%22fail: minuto invalido%22) %0A            return%0A\n     \n@@ -711,20 +711,16 @@\n  minuto%0A\n-    \n %0A    def\n@@ -756,17 +756,16 @@\n nt = 0):\n- \n %0A       \n@@ -767,16 +767,21 @@\n       if\n+ 0 %3C=\n  segundo\n@@ -786,91 +786,221 @@\n do %3C\n- 0 or segundo %3E 59:%0A            print(%22fail: segundo invalido%22)%0A            return \n+= 59:%0A            self.__segundo = segundo%0A%0A    # getters%0A    def get_hora(self) -%3E int:%0A        return self.__hora%0A%0A    def get_minuto(self) -%3E int:%0A        return self.__minuto%0A%0A    def get_segundo(self) -%3E int:\n %0A   \n@@ -996,32 +996,39 @@\n -%3E int:%0A        \n+return \n self.__segundo =\n@@ -1017,34 +1017,64 @@\n n self.__segundo\n- =\n+%0A%0A    # m%C3%A9todo que incrementa um\n  segundo%0A%0A    de\n@@ -1062,25 +1062,24 @@\n  um segundo%0A\n-%0A\n     def next\n@@ -1210,25 +1210,24 @@\n minuto += 1%0A\n-%0A\n             \n@@ -1315,13 +1315,17 @@\n ora \n++\n = 1%0A\n-%0A\n+    \n     \n@@ -1373,218 +1373,29 @@\n     \n-self.__minuto = 0%0A%0A    def get_hora(self) -%3E int: %0A        return self.__hora%0A    def get_minuto(self) -%3E int: %0A        return self.__minuto%0A    def get_segundo(self) -%3E int: %0A        return self.__segundo%0A    \n+    self.__hora = 0%0A%0A\n %0Adef\n@@ -1417,23 +1417,20 @@\n logio = \n-Relogio\n+None\n %0A    whi\n@@ -1503,20 +1503,8 @@\n args\n-: list %5Bstr%5D\n  = l\n@@ -1517,12 +1517,10 @@\n lit(\n-%22 %22\n )\n+%0A\n %0A   \n@@ -1544,17 +1544,16 @@\n = %22end%22:\n- \n %0A       \n@@ -1563,16 +1563,122 @@\n   break%0A\n+%0A        elif args%5B0%5D == %22init%22:%0A            relogio = Relogio(int(args%5B1%5D), int(args%5B2%5D), int(args%5B3%5D))%0A%0A\n         \n@@ -1700,17 +1700,16 @@\n  %22show%22:\n- \n %0A       \n@@ -1744,24 +1744,25 @@\n hora())%0A\n+%0A\n         \n if args%5B\n@@ -1745,32 +1745,34 @@\n ora())%0A%0A        \n+el\n if args%5B0%5D == %22h\n@@ -1774,15 +1774,13 @@\n == %22\n-hora\n+set\n %22:\n- \n %0A   \n@@ -1799,18 +1799,16 @@\n ogio.set\n-._\n _hora(in\n@@ -1842,18 +1842,16 @@\n ogio.set\n-._\n _minuto(\n@@ -1887,18 +1887,16 @@\n ogio.set\n-._\n _segundo\n@@ -1910,24 +1910,25 @@\n gs%5B3%5D))%0A\n+%0A\n         \n if args%5B\n@@ -1911,32 +1911,34 @@\n s%5B3%5D))%0A%0A        \n+el\n if args%5B0%5D == %22i\n@@ -1932,32 +1932,31 @@\n args%5B0%5D == %22\n-ini\n+nex\n t%22:%0A\n- \n             \n@@ -1966,61 +1966,22 @@\n ogio\n- = Relogio(int(args%5B1%5D), int(args%5B2%5D) , int(args%5B3%5D))\n+.nextSecond()%0A\n %0A%0Ama\n",
+            "lines": "77"
+        },
+        {
+            "label": "2025-10-19_15-25-18",
+            "content": "@@ -1757,20 +1757,16 @@\n ir_hora(\n-self\n ))%0A     \n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-25-40",
+            "content": "@@ -1735,17 +1735,17 @@\n   print(\n-R\n+r\n elogio.i\n@@ -1757,16 +1757,20 @@\n ir_hora(\n+self\n ))%0A     \n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-26-11",
+            "content": "@@ -1735,17 +1735,17 @@\n   print(\n-r\n+R\n elogio.i\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-26-17",
+            "content": "@@ -1756,16 +1756,18 @@\n mir_hora\n+()\n )%0A      \n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-26-48",
+            "content": "@@ -1756,18 +1756,16 @@\n mir_hora\n-()\n )%0A      \n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-30-43",
+            "content": "@@ -365,15 +365,21 @@\n def \n-__str__\n+imprimir_hora\n (sel\n@@ -1742,16 +1742,32 @@\n (relogio\n+.imprimir_hora()\n )%0A      \n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-32-55",
+            "content": "@@ -404,24 +404,25 @@\n lf.hora:02%7D:\n+ \n %7Bself.__minu\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-34-35",
+            "content": "@@ -1520,18 +1520,16 @@\n  Relogio\n-()\n %0A    whi\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-35-14",
+            "content": "@@ -1510,18 +1510,16 @@\n  relogio\n-()\n  = Relog\n@@ -1520,16 +1520,18 @@\n  Relogio\n+()\n %0A    whi\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-35-31",
+            "content": "@@ -1502,32 +1502,34 @@\n n():%0A    relogio\n+()\n  = Relogio()%0A   \n@@ -1522,18 +1522,16 @@\n  Relogio\n-()\n %0A    whi\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-35-54",
+            "content": "@@ -25,24 +25,74 @@\n _init__(self\n+, hora: int = 0, minuto: int = 0, segundo: int = 0\n ):%0A        s\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-36-24",
+            "content": "@@ -33,58 +33,8 @@\n self\n-, hora: int = 0, minuto: int = 0, segundo: int = 0\n ):%0A \n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-36-32",
+            "content": "@@ -395,26 +395,24 @@\n urn f%22%7Bself.\n-__\n hora:02%7D:%7Bse\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-37-28",
+            "content": "@@ -1797,16 +1797,17 @@\n io.set._\n+_\n hora(int\n@@ -1842,16 +1842,17 @@\n io.set._\n+_\n minuto(i\n@@ -1889,16 +1889,17 @@\n io.set._\n+_\n segundo(\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-40-58",
+            "content": "@@ -1791,24 +1791,25 @@\n  relogio.set\n+.\n _hora(int(ar\n@@ -1835,24 +1835,25 @@\n  relogio.set\n+.\n _minuto(int(\n@@ -1881,24 +1881,25 @@\n  relogio.set\n+.\n _segundo(int\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-41-59",
+            "content": "@@ -1741,34 +1741,32 @@\n elogio)%0A        \n-el\n if args%5B0%5D == %22h\n@@ -1906,34 +1906,32 @@\n gs%5B3%5D))%0A        \n-el\n if args%5B0%5D == %22i\n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-43-15",
+            "content": "@@ -1766,19 +1766,20 @@\n %5B0%5D == %22\n-set\n+hora\n %22: %0A    \n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-47-33",
+            "content": "@@ -875,17 +875,16 @@\n egundo %3E\n-=\n  59:%0A   \n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-52-51",
+            "content": "@@ -867,32 +867,33 @@\n %3C 0 or segundo %3E\n+=\n  59:%0A           \n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-53-16",
+            "content": "@@ -1224,17 +1224,16 @@\n .__hora \n-+\n = 1%0A%0A   \n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-55-06",
+            "content": "@@ -978,17 +978,16 @@\n egundo%0A%0A\n-%0A\n     def \n@@ -1234,36 +1234,32 @@\n  1%0A%0A            \n-    \n if self.__hora %3E\n@@ -1283,30 +1283,27 @@\n     \n-    \n self.__\n-hora\n+minuto\n  = 0%0A%0A\n-%0A\n     \n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_15-56-44",
+            "content": "@@ -978,16 +978,17 @@\n egundo%0A%0A\n+%0A\n     def \n@@ -1123,24 +1123,25 @@\n minuto += 1%0A\n+%0A\n             \n@@ -1226,24 +1226,25 @@\n __hora += 1%0A\n+%0A\n             \n@@ -1260,32 +1260,32 @@\n lf.__hora %3E 23:%0A\n+\n                 \n@@ -1306,17 +1306,16 @@\n a = 0%0A%0A%0A\n-%0A\n     def \n",
+            "lines": "73"
+        },
+        {
+            "label": "2025-10-19_15-58-04",
+            "content": "@@ -1303,16 +1303,17 @@\n a = 0%0A%0A%0A\n+%0A\n     def \n@@ -1918,79 +1918,8 @@\n %5D))%0A\n-        elif args%5B0%5D == %22next%22:%0A           print(relogio.nextSecond())%0A\n     \n",
+            "lines": "71"
+        },
+        {
+            "label": "2025-10-19_16-02-59",
+            "content": "@@ -1223,16 +1223,17 @@\n .__hora \n++\n = 1%0A    \n",
+            "lines": "72"
+        },
+        {
+            "label": "2025-10-19_16-04-43",
+            "content": "@@ -1223,17 +1223,16 @@\n .__hora \n-+\n = 1%0A    \n@@ -1947,33 +1947,38 @@\n xt%22:%0A           \n- \n+print(\n relogio.nextSeco\n@@ -1981,16 +1981,17 @@\n Second()\n+)\n %0A       \n",
+            "lines": "72"
+        },
+        {
+            "label": "2025-10-19_16-08-16",
+            "content": "@@ -104,17 +104,21 @@\n _hora = \n-0\n+hora \n %0A       \n@@ -134,17 +134,22 @@\n inuto = \n-0\n+minuto\n  %0A      \n@@ -159,33 +159,40 @@\n elf.__segundo = \n-0\n+segundo \n %0A        self.se\n@@ -271,16 +271,96 @@\n segundo)\n+%0A        self.__hora = 0 %0A        self.__minuto = 0 %0A        self.__segundo = 0 \n %0A%0A    de\n",
+            "lines": "72"
+        },
+        {
+            "label": "2025-10-19_16-14-42",
+            "content": "class Relogio:\n    def __init__(self, hora: int = 0, minuto: int = 0, segundo: int = 0):\n        self.__hora = 0\n        self.__minuto = 0 \n        self.__segundo = 0\n        self.set_hora(hora) \n        self.set_minuto(minuto) \n        self.set_segundo(segundo)\n\n    def __str__(self):\n        return f\"{self.__hora:02}:{self.__minuto:02}:{self.__segundo:02}\"\n\n    def set_hora(self, hora: int = 0):\n        if hora < 0 or hora > 23:\n            print(\"fail: hora invalida\")\n            return \n        self.__hora = hora \n\n    def set_minuto(self, minuto: int = 0):\n        if minuto < 0 or minuto > 59:\n            print(\"fail: minuto invalido\") \n            return\n        self.__minuto = minuto\n    \n    def set_segundo(self, segundo: int = 0): \n        if segundo < 0 or segundo > 59:\n            print(\"fail: segundo invalido\")\n            return \n        self.__segundo = segundo\n\n    def nextSecond(self):\n        self.__segundo += 1\n        if self.__segundo > 59:\n            self.__segundo = 0\n            self.__minuto += 1\n            if self.__minuto > 59:\n                self.__minuto = 0\n                self.__hora += 1\n                if self.__hora > 23:\n                    self.__hora = 0\n\n\n    def get_hora(self) -> int: \n        return self.__hora\n    def get_minuto(self) -> int: \n        return self.__minuto\n    def get_segundo(self) -> int: \n        return self.__segundo\n    \ndef main():\n    relogio = Relogio()\n    while True:\n        line = input()\n        print(f\"${line}\")\n        args: list [str] = line.split(\" \")\n        if args[0] == \"end\": \n            break\n        elif args[0] == \"show\": \n            print(relogio)\n        elif args[0] == \"set\": \n            relogio.set_hora(int(args[1]))\n            relogio.set_minuto(int(args[2]))\n            relogio.set_segundo(int(args[3]))\n        elif args[0] == \"next\":\n            relogio.nextSecond()\n        elif args[0] == \"init\":\n             relogio = Relogio(int(args[1]), int(args[2]) , int(args[3]))\n\nmain()\n",
+            "lines": "69"
         }
     ]
 }
