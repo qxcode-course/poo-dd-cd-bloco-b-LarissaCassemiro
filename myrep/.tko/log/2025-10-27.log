@@ -1,0 +1,34 @@
+2025-10-27 18:16:32, MOVE, v:1, k:poo@relogio, mode:PICK
+2025-10-27 18:16:45, EXEC, v:1, k:poo@relogio, mode:FULL, rate:100
+2025-10-27 18:16:49, MOVE, v:1, k:poo@relogio, mode:BACK
+2025-10-27 18:17:33, MOVE, v:1, k:poo@chinela, mode:PICK
+2025-10-27 18:17:35, MOVE, v:1, k:poo@chinela, mode:BACK
+2025-10-27 18:18:09, MOVE, v:1, k:poo@grafite, mode:PICK
+2025-10-27 18:21:03, EXEC, v:1, k:poo@grafite, mode:FULL, rate:20
+2025-10-27 18:21:56, MOVE, v:1, k:poo@grafite, mode:PICK
+2025-10-27 18:22:04, EXEC, v:1, k:poo@grafite, mode:FULL, rate:20
+2025-10-27 18:23:04, EXEC, v:1, k:poo@grafite, mode:FULL, rate:100, size:198
+2025-10-27 18:28:00, MOVE, v:1, k:poo@grafite, mode:BACK
+2025-10-27 18:28:09, MOVE, v:1, k:poo@motoca, mode:PICK
+2025-10-27 18:33:03, EXEC, v:1, k:poo@motoca, mode:FULL, rate:100, size:96
+2025-10-27 18:33:11, MOVE, v:1, k:poo@motoca, mode:BACK
+2025-10-27 18:37:53, MOVE, v:1, k:poo@motouber, mode:DOWN
+2025-10-27 18:37:53, MOVE, v:1, k:poo@motouber, mode:PICK
+2025-10-27 19:29:17, EXEC, v:1, k:poo@motouber, mode:FULL, rate:0, size:90
+2025-10-27 19:31:48, EXEC, v:1, k:poo@motouber, mode:FULL, rate:0, size:92
+2025-10-27 19:38:36, EXEC, v:1, k:poo@motouber, mode:FULL, rate:0, size:150
+2025-10-27 19:38:50, EXEC, v:1, k:poo@motouber, mode:FULL, rate:0, size:150
+2025-10-27 19:39:04, EXEC, v:1, k:poo@motouber, mode:FULL, rate:0, size:150
+2025-10-27 19:46:23, EXEC, v:1, k:poo@motouber, mode:FULL, rate:100, size:137
+2025-10-27 19:49:01, MOVE, v:1, k:poo@motouber, mode:BACK
+2025-10-27 19:50:51, MOVE, v:1, k:poo@charger, mode:DOWN
+2025-10-27 19:50:51, MOVE, v:1, k:poo@charger, mode:PICK
+2025-10-27 19:50:58, MOVE, v:1, k:poo@charger, mode:BACK
+2025-10-27 19:51:01, MOVE, v:1, k:poo@charger, mode:PICK
+2025-10-27 20:05:27, EXEC, v:1, k:poo@charger, mode:FULL, rate:100, size:202
+2025-10-27 20:18:02, EXEC, v:1, k:poo@charger, mode:FULL, rate:0, size:176
+2025-10-27 20:19:13, EXEC, v:1, k:poo@charger, mode:FULL, rate:100, size:181
+2025-10-27 20:19:56, MOVE, v:1, k:poo@charger, mode:BACK
+2025-10-27 20:20:12, MOVE, v:1, k:poo@notebook, mode:PICK
+2025-10-27 20:21:12, MOVE, v:1, k:poo@notebook, mode:BACK
+2025-10-27 20:23:33, MOVE, v:1, k:poo@tamagotchi, mode:DOWN
