@@ -9,3 +9,4 @@ class Notebook:
     if self.bateria != None and
     self.bateria.get_carga() > 0:
     self. ligado = True 
+

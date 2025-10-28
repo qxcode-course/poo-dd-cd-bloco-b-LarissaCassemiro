@@ -2,28 +2,39 @@ version: '0.2'
 sources:
 - database: local
   link: ''
+  type: local
+  branch: master
   cache_path: ''
   cache_timestamp: ''
   filters: null
 - database: poo
   link: https://github.com/qxcodepoo/arcade/blob/master/Readme.md
-  cache_path: /workspaces/poo-dd-cd-bloco-b-LarissaCassemiro/myrep/.tko/cache/poo.md
-  cache_timestamp: '2025-10-28 18:37:24'
+  type: remote
+  branch: master
+  cache_path: C:\Users\PATRICIA\Documents\tko\Poo-dd-cd-bloco-b-LarissaCassemiro\poo-dd-cd-bloco-b-LarissaCassemiro\myrep\.tko\cache\poo.md
+  cache_timestamp: '2025-10-27 20:23:26'
   filters:
   - acesso
   - simples
 expanded:
 - poo@campanha-principal
+- poo@bloco_b-modificadores-de-acesso
 - poo@bloco_b-agregação-simples
 tasks:
   poo@relogio: '{rate:100}'
   poo@motoca: '{rate:100}'
+<<<<<<< HEAD
   poo@grafite: '{rate:20}'
+=======
+  poo@grafite: '{rate:100}'
+  poo@motouber: '{rate:100}'
+  poo@charger: '{rate:100}'
+>>>>>>> b8f6bdc58dc2c6d533f6b6438b5d27df0ed939b6
 flags:
   quests: 2
   tracks: 0
   tasks: 0
-  graph: 0
+  graph: 1
   xray: 0
 lang: py
-selected: poo@grafite
+selected: poo@tamagotchi
