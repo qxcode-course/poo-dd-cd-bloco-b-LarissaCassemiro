@@ -98,7 +98,6 @@ class Lapiseira:
 
     def tem_grafite(self):
         return self.__grafite is not None
-
     def inserir(self, grafite: Grafite):
         if grafite.get_calibre() != self.__calibre:
             print("fail: calibre incompativel")
@@ -132,15 +131,15 @@ class Lapiseira:
         tamanho_final = tamanho - gasto
 
         if tamanho_final < 10:
-            grafite.set_tamanho(10)
-            print("fail: folha incompleta")
-            return
+                grafite.set_tamanho(10)
+                print("fail: folha incompleta")
+                return
 
         grafite.set_tamanho(tamanho_final)
 
     def __str__(self):
         if self.tem_grafite():
-            return f"calibre: {self.__calibre:.1f}, grafite: [{self.__grafite}]"
+            return f"calibre: {self.__calibre:.1f}, grafite: [{self.__grafite}mm]"
         else:
             return f"calibre: {self.__calibre:.1f}, grafite: null"
 
@@ -164,6 +163,10 @@ def main():
                 print("fail: lapiseira nao iniciada")
             else:
                 print(lapiseira)
+        
+        elif args[0] == "insert":
+            if lapiseira is None:
+                print("fail: lapiseira nao iniciada")
 
         elif args[0] == "insert":
             if lapiseira is None:
